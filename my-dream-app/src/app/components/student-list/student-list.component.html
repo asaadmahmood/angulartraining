@@ -1,0 +1,51 @@
+<h2 [hidden]="isHidden">Student List</h2>
+<table border="1" cellpadding='10'>
+  <thead>
+    <tr style="font-weight: bold;">
+      <td>ID</td>
+      <td>Fullname</td>
+      <td>Batch</td>
+      <td>Actions</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let student of students' [class.pass]='student.pass' [class.fail]='student.fail'>
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.batch}}</td>
+      <td>
+        <input type="button" value="Pass" (click)='passStudent(student)'>
+        <input type="button" value="Fail" (click)='failStudent(student)'>
+        <input type="button" value="Remove" (click)='removeStudent(student)'>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 [hidden]="isHidden">Add Student</h2>
+<form #studentForm='ngForm' (ngSubmit)="submitForm(studentForm)">
+  <table border="1" cellpadding='10'>
+    <thead>
+      <tr style="font-weight: bold;">
+        <td>ID</td>
+        <td>Fullname</td>
+        <td>Batch</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" required [(ngModel)]='newStudentId' name='newStudentId'></td>
+        <td><input type="text" required [(ngModel)]='newStudentName' name='newStudentName'></td>
+        <td><input type="number" required [(ngModel)]='newStudentBatch' name='newStudentBatch'></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <button type="submit" class="btn btn-primary">Add Student</button>
+</form>
+<!-- <br>
+<input #myInput type="text" (keyup.enter)="onKeyUp(myInput)">
+<br>
+<br>
+<input type="text" [(ngModel)]='email' (keyup.enter)='enterPressed()'>
+ -->

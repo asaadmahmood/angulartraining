@@ -1,0 +1,15 @@
+.pass {
+    background-color: green;
+}
+
+.fail {
+    background-color: red;
+}
+
+.btn {
+    font-size: 14px;
+    background-color: royalblue;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+}
