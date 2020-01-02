@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" />
+                <div class="alert alert-danger">
+                    <div>
+                        Address is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" class="form-control" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-default">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">
+                    Order summary
+                </h4>
+                <p class="card-text">
+                    you have 1 items in your shopping cart.
+                </p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let item of cartItems">
+                        1 x Milk
+                        <div class="float-right">
+                            $1.00
+                        </div>
+                    </li>
+                    <li class="list-group-item font-weight-bold">
+                        Total
+                        <div class="float-right">
+                            $1.00
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

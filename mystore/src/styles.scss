@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+// npm install --save @ng-bootstrap/ng-bootstrap
+
+body {
+    padding-top: 80px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
