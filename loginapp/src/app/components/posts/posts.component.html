@@ -1,0 +1,37 @@
+<h2>Posts</h2>
+
+<div>
+    <input type="button" value="Get Posts" (click)='getPosts()'>
+</div>
+
+<form #postForm='ngForm' (ngSubmit)='submitPost(postForm)'>
+    <h4>Add New Post</h4>
+    <div>
+        <div>
+            <label for="">UserId:</label>
+            <input type="text" placeholder="Enter your User ID" [(ngModel)]='userId' name='userId'>
+        </div>
+        <div>
+            <label for="">Title:</label>
+            <input type="text" placeholder="Enter your Title" [(ngModel)]='title' name='title'>
+        </div>
+        <div>
+            <label for="">Body:</label>
+            <input type="text" placeholder="Enter your Post Body" [(ngModel)]='body' name='body'>
+        </div>
+        <div>
+            <input type="submit" value="Add New Post">
+        </div>
+    </div>
+</form>
+
+<br>
+<br>
+<br>
+<h4>Current Posts:</h4>
+<div *ngFor='let post of posts'>
+    UserId: {{ post.userId }} <br>
+    Title: {{ post.title }} <br>
+    Body: {{ post.body }} <br>
+    <hr>
+</div>

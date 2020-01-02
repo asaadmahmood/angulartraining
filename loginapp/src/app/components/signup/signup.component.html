@@ -1,0 +1,49 @@
+<h2>Signup</h2>
+<form [formGroup]='signupForm' (ngSubmit)='submitForm(signupForm)'>
+    <div>
+        <label>First Name</label>
+        <input type="text" formControlName='firstName'/>
+        <div *ngIf='!signupForm.controls.firstName.valid && signupForm.controls.firstName.dirty'>
+            First name is required
+        </div>
+    </div>
+    <div>
+        <label>Last Name</label>
+        <input type="text" formControlName='lastName'/>
+        <div *ngIf='!signupForm.controls.lastName.valid && signupForm.controls.lastName.dirty'>
+            <div *ngIf='signupForm.controls.lastName.errors?.required'>
+                Lastname is required
+            </div>
+            <div *ngIf='signupForm.controls.lastName.errors?.minlength'>
+                Lastname must be atleast 3 characters long
+            </div>
+            <div *ngIf='signupForm.controls.lastName.errors?.containsSpace'>
+                Lastname cannot contain space
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" formControlName='email'/>
+        <div *ngIf='!signupForm.controls.email.valid && signupForm.controls.email.dirty'>
+            Email is required
+        </div>
+    </div>
+    <div>
+        <label>Phone</label>
+        <input type="text" formControlName='phone'/>
+        <div *ngIf='!signupForm.controls.phone.valid && signupForm.controls.phone.dirty'>
+            Phone is required
+        </div>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" formControlName='password'/>
+        <div *ngIf='!signupForm.controls.password.valid && signupForm.controls.password.dirty'>
+            Password is required
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Signup">
+    </div>
+</form>

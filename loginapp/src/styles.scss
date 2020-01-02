@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    padding: 50px;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    width: 250px;
+}
+
+h2 {
+    margin: 2rem 0;
+}
+
+label {
+    display: block;
+    margin: 20px 0 4px;
+}
+
+input[type=button],
+input[type=submit],
+button {
+    outline: none;
+    color: #fff;
+    background-color: #0089ff;
+    border: none;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+
+    &:hover {
+        background-color: darken(#0089ff, 5%);
+    }
+
+    &:active {
+        background-color: darken(#0089ff, 10%);
+    }
+}

@@ -35,7 +35,7 @@ export class AppComponent {
 
   submitPost() {
     this.appService.createPost(this.myPost).subscribe((res: Post) => {
-      this.posts.push(res);
+      this.posts.unshift(res);
     });
   }
 
