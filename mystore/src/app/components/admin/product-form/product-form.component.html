@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-md-6">
+        <form [formGroup]='productForm' (ngSubmit)='submitForm(productForm)'>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control" formControlName='title' />
+                <div class="alert alert-danger" *ngIf='!productForm.controls.title.valid && productForm.controls.title.dirty'>
+                    <div>
+                        Title is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">$</span>
+                    </div>
+                    <input min="0" max="9999" type="number" id="price" class="form-control" formControlName='price' />
+                </div>
+                <div class="alert alert-danger" *ngIf='!productForm.controls.price.valid && productForm.controls.price.dirty'>
+                    <div>
+                        Price is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" class="form-control" formControlName='category'>
+                    <option>
+                        Milk
+                    </option>
+                </select>
+                <div class="alert alert-danger" *ngIf='!productForm.controls.category.valid && productForm.controls.category.dirty'>
+                    <div>
+                        Category is required.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="text" id="imageUrl" class="form-control" formControlName='imageUrl' />
+                <div class="alert alert-danger" *ngIf='!productForm.controls.imageUrl.valid && productForm.controls.imageUrl.dirty'>
+                    <div>
+                        Image Url is required.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-default">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <img *ngIf='!this.productForm.controls.imageUrl.value' class="card-img-top" src="https://dummyimage.com/600x220/000/fff" alt="Card image cap">
+            <img *ngIf='this.productForm.controls.imageUrl.value' class="card-img-top" [src]="this.productForm.controls.imageUrl.value" alt="Card image cap">
+            <div class="card-body">
+                <div>
+                    <h2 *ngIf='this.productForm.controls.title.value' class="card-title">{{this.productForm.controls.title.value}}</h2>
+                    <h2 *ngIf='!this.productForm.controls.title.value' class="card-title">Add Title</h2>
+                </div>
+                <div>
+                    <h5 *ngIf='this.productForm.controls.category.value' class="card-text">{{this.productForm.controls.category.value}}</h5>
+                    <h5 *ngIf='!this.productForm.controls.category.value' class="card-text">Add Category</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
