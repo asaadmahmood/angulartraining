@@ -1,15 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { IProductCategory } from 'src/app/interfaces/product';
+import { ProductsService } from 'src/app/services/products.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
+  categories: IProductCategory[];
+  categorySubscription: Subscription;
+  subscriptions: Subscription[] = [];
 
-  constructor() { }
+  constructor(
+    private productsService: ProductsService,
+  ) { }
 
   ngOnInit() {
+    this.subscriptions.push(
+      this.productsService.getProductCategories()
+        .subscribe(res => {
+          const category: IProductCategory = {
+            id: '0',
+            name: 'All Categories',
+            isActive: true,
+          }
+          this.categories = [category, ...res];
+          console.log(res);
+        })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.map(subs => subs.unsubscribe());
+  }
+
+  filterProducts(category: IProductCategory) {
+    this.categories.map(x => x.isActive = false);
+    category.isActive = true;
   }
 
 }

@@ -27,8 +27,8 @@
             <div class="form-group">
                 <label for="category">Category</label>
                 <select id="category" class="form-control" formControlName='category'>
-                    <option>
-                        Milk
+                    <option *ngFor='let item of categories' [value]="item.name">
+                        {{ item.name }}
                     </option>
                 </select>
                 <div class="alert alert-danger" *ngIf='!productForm.controls.category.valid && productForm.controls.category.dirty'>
@@ -47,24 +47,17 @@
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button [disabled]='!productForm.valid' type="submit" class="btn btn-primary">Submit</button>
                 <a class="btn btn-default">Cancel</a>
             </div>
         </form>
     </div>
     <div class="col-md-6">
         <div class="card">
-            <img *ngIf='!this.productForm.controls.imageUrl.value' class="card-img-top" src="https://dummyimage.com/600x220/000/fff" alt="Card image cap">
-            <img *ngIf='this.productForm.controls.imageUrl.value' class="card-img-top" [src]="this.productForm.controls.imageUrl.value" alt="Card image cap">
+            <img class="card-img-top" [src]="productForm.controls.imageUrl.value ? productForm.controls.imageUrl.value : 'https://dummyimage.com/600x220/000/fff'" alt="Card image cap">
             <div class="card-body">
-                <div>
-                    <h2 *ngIf='this.productForm.controls.title.value' class="card-title">{{this.productForm.controls.title.value}}</h2>
-                    <h2 *ngIf='!this.productForm.controls.title.value' class="card-title">Add Title</h2>
-                </div>
-                <div>
-                    <h5 *ngIf='this.productForm.controls.category.value' class="card-text">{{this.productForm.controls.category.value}}</h5>
-                    <h5 *ngIf='!this.productForm.controls.category.value' class="card-text">Add Category</h5>
-                </div>
+                <h2 class="card-title">{{productForm.controls.title.value ? productForm.controls.title.value : 'Add Title'}}</h2>
+                <h5 class="card-text">{{productForm.controls.category.value ? productForm.controls.category.value : 'Add Category'}}</h5>
             </div>
         </div>
     </div>

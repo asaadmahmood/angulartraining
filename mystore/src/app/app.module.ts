@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularFireModule } from '@angular/fire'
+import { AngularFireDatabaseModule } from '@angular/fire/database'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { ManageOrdersComponent } from './components/admin/manage-orders/manage-orders.component';
 import { ManageProductsComponent } from './components/admin/manage-products/manage-products.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'Habib-store'),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,8 +17,9 @@ const routes: Routes = [
   {path: 'check-out', component: CheckOutComponent},
   {path: 'my-orders', component: MyOrdersComponent},
   {path: 'product-form', component: ProductFormComponent},
-  {path: 'manage-products', component: ManageProductsComponent},
-  {path: 'manage-orders', component: ManageOrdersComponent},
+  {path: 'admin/manage-products', component: ManageProductsComponent},
+  {path: 'admin/manage-orders', component: ManageOrdersComponent},
+  {path: 'admin/edit-product:id', component: ProductFormComponent},
 ];
 
 @NgModule({
