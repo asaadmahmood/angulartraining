@@ -19,10 +19,10 @@
             <td>{{product.price | currency}}</td>
             <td>{{product.category}}</td>
             <td>
-                <button [routerLink]="['admin/edit-product', product.id]" type="button" class="btn btn-success">
+                <button [routerLink]="['../edit-product', product.id]" type="button" class="btn btn-success mr-2 btn-sm">
                     Edit
                 </button>
-                <button (click)='removeProduct(product)' type="button" class="btn btn-danger">
+                <button (click)='removeProduct(product)' type="button" class="btn btn-danger btn-sm">
                     Delete
                 </button>
             </td>

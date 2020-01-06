@@ -31,7 +31,7 @@ import { environment } from 'src/environments/environment';
     MyOrdersComponent,
     ProductFormComponent,
     ManageOrdersComponent,
-    ManageProductsComponent
+    ManageProductsComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,12 +14,12 @@ const routes: Routes = [
   {path: '', component: ProductsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'check-out', component: CheckOutComponent},
+  {path: 'checkout', component: CheckOutComponent},
   {path: 'my-orders', component: MyOrdersComponent},
   {path: 'product-form', component: ProductFormComponent},
   {path: 'admin/manage-products', component: ManageProductsComponent},
   {path: 'admin/manage-orders', component: ManageOrdersComponent},
-  {path: 'admin/edit-product:id', component: ProductFormComponent},
+  {path: 'admin/edit-product/:id', component: ProductFormComponent},
 ];
 
 @NgModule({

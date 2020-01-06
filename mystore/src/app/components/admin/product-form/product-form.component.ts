@@ -72,7 +72,6 @@ export class ProductFormComponent implements OnInit, OnDestroy {
         this.router.navigate(['admin/manage-products']);
       })
     }
-
   }
 
   ngOnDestroy() {

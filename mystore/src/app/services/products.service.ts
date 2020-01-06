@@ -51,6 +51,11 @@ export class ProductsService {
       .push(body)
   }
 
+  removeProduct(body: IProduct) {
+    const url = `${FIREBASE_TABLES.products}/${body.id}`;
+    return this.db.object(url).remove();
+  }
+
   updateProduct(id: string, body: IProduct) {
     const url = `${FIREBASE_TABLES.products}/${id}`;
     return this.db

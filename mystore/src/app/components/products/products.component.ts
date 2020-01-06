@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IProductCategory } from 'src/app/interfaces/product';
+import { IProductCategory, IProduct } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { Subscription } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
+  products: IProduct[];
   categories: IProductCategory[];
   categorySubscription: Subscription;
   subscriptions: Subscription[] = [];
@@ -27,7 +28,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
             isActive: true,
           }
           this.categories = [category, ...res];
-          console.log(res);
+        })
+    );
+
+    this.subscriptions.push(
+      this.productsService.getProducts()
+        .subscribe(res => {
+          this.products = res;
         })
     );
   }

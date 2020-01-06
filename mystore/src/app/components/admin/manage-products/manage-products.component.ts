@@ -34,7 +34,9 @@ export class ManageProductsComponent implements OnInit, OnDestroy {
   }
 
   removeProduct(product: IProduct) {
-
+    this.productsService.removeProduct(product).then(() => {
+      console.log('removed');
+    })
   }
 
 }
